@@ -70,8 +70,8 @@ if($this->startResultCache(false, array(($arParams["CACHE_GROUPS"]==="N"? false:
 	}
 
 	$arSelect = Array("ID", "NAME", "DATE_ACTIVE_FROM");
-	$arFilter = Array("IBLOCK_ID"=>1, "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y");
-	$res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>1000), $arSelect);
+	$arFilter = Array("IBLOCK_ID"=>$arParams["IBLOCK_ID"], "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y");
+	$res = CIBlockElement::GetList(Array("ID" => "DESC"), $arFilter, false, Array("nPageSize"=>1000), $arSelect);
 	$arCity = Array();
 	while($ob = $res->GetNextElement())
 	{
